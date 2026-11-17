@@ -1,1 +1,38 @@
-{"tour": 1, "steps": [{"screenshot": "1-start.png"}, {"screenshot": "2-play.png", "keys": ["Right"], "wait_ms": 1000}, {"screenshot": "3-end.png", "keys": ["Down"], "wait_ms": 1000}]}
+{
+  "tour": 1,
+  "steps": [
+    {
+      "screenshot": "screenshots/1-cover-thumbnail.jpg",
+      "keys": ["One"],
+      "wait_ms": 800,
+      "call": {
+        "module": "ServerScriptService.Server.HeistAndTsunamiService",
+        "fn": "applyTourPreset",
+        "arg": "cover",
+        "on": "Server"
+      }
+    },
+    {
+      "screenshot": "screenshots/2-heist-tsunami-chase.jpg",
+      "keys": ["Two", "E"],
+      "wait_ms": 900,
+      "call": {
+        "module": "ServerScriptService.Server.HeistAndTsunamiService",
+        "fn": "applyTourPreset",
+        "arg": "heist",
+        "on": "Server"
+      }
+    },
+    {
+      "screenshot": "screenshots/3-rebirth-mutation-shop.jpg",
+      "keys": ["Three", "I"],
+      "wait_ms": 900,
+      "call": {
+        "module": "ServerScriptService.Server.HeistAndTsunamiService",
+        "fn": "applyTourPreset",
+        "arg": "rebirth",
+        "on": "Server"
+      }
+    }
+  ]
+}

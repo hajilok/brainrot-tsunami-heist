@@ -1,10 +1,10 @@
 {
-  "name": "house-dodge",
+  "name": "brainrot-tsunami-heist",
   "tree": {
     "$className": "DataModel",
-    "Players": {
-      "$properties": {
-        "CharacterAutoLoads": false
+    "ReplicatedStorage": {
+      "Shared": {
+        "$path": "src/shared"
       }
     },
     "ServerScriptService": {
@@ -19,6 +19,114 @@
         }
       }
     },
+    "Players": {
+      "$properties": {
+        "CharacterAutoLoads": false
+      }
+    },
+    "StarterGui": {
+      "BrainrotHudPreview": {
+        "$className": "ScreenGui",
+        "$properties": {
+          "ResetOnSpawn": false,
+          "IgnoreGuiInset": true
+        },
+        "HudRoot": {
+          "$className": "Frame",
+          "$properties": {
+            "BackgroundColor3": [0.08, 0.09, 0.12],
+            "BackgroundTransparency": 0.2,
+            "BorderSizePixel": 0
+          },
+          "GameTitle": {
+            "$className": "TextLabel",
+            "$properties": {
+              "BackgroundTransparency": 1,
+              "BorderSizePixel": 0,
+              "Text": "Brainrot Tsunami Heist",
+              "TextSize": 28,
+              "TextColor3": [1, 0.85, 0.2]
+            }
+          },
+          "CashLabel": {
+            "$className": "TextLabel",
+            "$properties": {
+              "BackgroundTransparency": 1,
+              "BorderSizePixel": 0,
+              "Text": "$0/s",
+              "TextSize": 22,
+              "TextColor3": [0.4, 1, 0.5]
+            }
+          },
+          "WaveLabel": {
+            "$className": "TextLabel",
+            "$properties": {
+              "BackgroundTransparency": 1,
+              "BorderSizePixel": 0,
+              "Text": "Tsunami incoming",
+              "TextSize": 18,
+              "TextColor3": [0.7, 0.9, 1]
+            }
+          },
+          "RebirthLabel": {
+            "$className": "TextLabel",
+            "$properties": {
+              "BackgroundTransparency": 1,
+              "BorderSizePixel": 0,
+              "Text": "Rebirth 0",
+              "TextSize": 18,
+              "TextColor3": [0.9, 0.7, 1]
+            }
+          }
+        },
+        "VaultFrame": {
+          "$className": "Frame",
+          "$properties": {
+            "BackgroundColor3": [0.12, 0.1, 0.18],
+            "BackgroundTransparency": 0.25,
+            "BorderSizePixel": 0
+          },
+          "VaultLabel": {
+            "$className": "TextLabel",
+            "$properties": {
+              "BackgroundTransparency": 1,
+              "BorderSizePixel": 0,
+              "Text": "Vault - 8 pedestals",
+              "TextSize": 18,
+              "TextColor3": [0.95, 0.95, 1]
+            }
+          }
+        },
+        "ShopFrame": {
+          "$className": "Frame",
+          "$properties": {
+            "BackgroundColor3": [0.18, 0.12, 0.08],
+            "BackgroundTransparency": 0.25,
+            "BorderSizePixel": 0
+          },
+          "ShopTitle": {
+            "$className": "TextLabel",
+            "$properties": {
+              "BackgroundTransparency": 1,
+              "BorderSizePixel": 0,
+              "Text": "Mutation Shop",
+              "TextSize": 20,
+              "TextColor3": [1, 0.8, 0.4]
+            }
+          }
+        },
+        "HintLabel": {
+          "$className": "TextLabel",
+          "$properties": {
+            "BackgroundTransparency": 1,
+            "BorderSizePixel": 0,
+            "Text": "Collect brainrots - Escape the tsunami",
+            "TextSize": 16,
+            "TextColor3": [0.85, 0.85, 0.9]
+          }
+        }
+      }
+    },
     "Workspace": {
       "$properties": {
         "FilteringEnabled": true
@@ -27,41 +135,504 @@
         "$className": "Part",
         "$properties": {
           "Anchored": true,
-          "Color": [
-            0.38823,
-            0.37254,
-            0.38823
-          ],
           "Locked": true,
-          "Position": [
-            0,
-            -10,
-            0
-          ],
-          "Size": [
-            512,
-            20,
-            512
-          ]
+          "Position": [0, -10, 0],
+          "Size": [512, 20, 512],
+          "Color": [0.39, 0.37, 0.39]
         }
-      }
-    },
-    "Lighting": {
-      "$properties": {
-        "Ambient": [
-          0,
-          0,
-          0
-        ],
-        "Brightness": 2,
-        "GlobalShadows": true,
-        "Outlines": false,
-        "Technology": "Voxel"
-      }
-    },
-    "SoundService": {
-      "$properties": {
-        "RespectFilteringEnabled": true
+      },
+      "BrainrotWorld": {
+        "$className": "Folder",
+        "Plaza": {
+          "$className": "Model",
+          "PlazaFloor": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [0, 0, 0],
+              "Size": [120, 2, 120],
+              "Color": [0.25, 0.28, 0.34]
+            }
+          },
+          "PlazaPillarNorth": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [0, 6, -55],
+              "Size": [4, 12, 4],
+              "Color": [0.6, 0.62, 0.7]
+            }
+          },
+          "PlazaPillarSouth": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [0, 6, 55],
+              "Size": [4, 12, 4],
+              "Color": [0.6, 0.62, 0.7]
+            }
+          },
+          "PlazaPillarEast": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [55, 6, 0],
+              "Size": [4, 12, 4],
+              "Color": [0.6, 0.62, 0.7]
+            }
+          },
+          "PlazaPillarWest": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [-55, 6, 0],
+              "Size": [4, 12, 4],
+              "Color": [0.6, 0.62, 0.7]
+            }
+          }
+        },
+        "VaultPedestals": {
+          "$className": "Model",
+          "Pedestal1": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [-42, 3, 0],
+              "Size": [4, 6, 4],
+              "Color": [0.5, 0.55, 0.62]
+            }
+          },
+          "NeonTrim1": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [-42, 6.2, 0],
+              "Size": [4.4, 0.4, 4.4],
+              "Color": [0.1, 1, 0.9],
+              "CanCollide": false
+            }
+          },
+          "Pedestal2": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [-30, 3, 0],
+              "Size": [4, 6, 4],
+              "Color": [0.5, 0.55, 0.62]
+            }
+          },
+          "NeonTrim2": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [-30, 6.2, 0],
+              "Size": [4.4, 0.4, 4.4],
+              "Color": [0.1, 1, 0.9],
+              "CanCollide": false
+            }
+          },
+          "Pedestal3": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [-18, 3, 0],
+              "Size": [4, 6, 4],
+              "Color": [0.5, 0.55, 0.62]
+            }
+          },
+          "NeonTrim3": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [-18, 6.2, 0],
+              "Size": [4.4, 0.4, 4.4],
+              "Color": [0.1, 1, 0.9],
+              "CanCollide": false
+            }
+          },
+          "Pedestal4": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [-6, 3, 0],
+              "Size": [4, 6, 4],
+              "Color": [0.5, 0.55, 0.62]
+            }
+          },
+          "NeonTrim4": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [-6, 6.2, 0],
+              "Size": [4.4, 0.4, 4.4],
+              "Color": [0.1, 1, 0.9],
+              "CanCollide": false
+            }
+          },
+          "Pedestal5": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [6, 3, 0],
+              "Size": [4, 6, 4],
+              "Color": [0.5, 0.55, 0.62]
+            }
+          },
+          "NeonTrim5": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [6, 6.2, 0],
+              "Size": [4.4, 0.4, 4.4],
+              "Color": [0.1, 1, 0.9],
+              "CanCollide": false
+            }
+          },
+          "Pedestal6": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [18, 3, 0],
+              "Size": [4, 6, 4],
+              "Color": [0.5, 0.55, 0.62]
+            }
+          },
+          "NeonTrim6": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [18, 6.2, 0],
+              "Size": [4.4, 0.4, 4.4],
+              "Color": [0.1, 1, 0.9],
+              "CanCollide": false
+            }
+          },
+          "Pedestal7": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [30, 3, 0],
+              "Size": [4, 6, 4],
+              "Color": [0.5, 0.55, 0.62]
+            }
+          },
+          "NeonTrim7": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [30, 6.2, 0],
+              "Size": [4.4, 0.4, 4.4],
+              "Color": [0.1, 1, 0.9],
+              "CanCollide": false
+            }
+          },
+          "Pedestal8": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [42, 3, 0],
+              "Size": [4, 6, 4],
+              "Color": [0.5, 0.55, 0.62]
+            }
+          },
+          "NeonTrim8": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [42, 6.2, 0],
+              "Size": [4.4, 0.4, 4.4],
+              "Color": [0.1, 1, 0.9],
+              "CanCollide": false
+            }
+          }
+        },
+        "LaserBarrierGate": {
+          "$className": "Model",
+          "GatePostWest": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [-12, 5, 40],
+              "Size": [2, 10, 2],
+              "Color": [0.2, 0.2, 0.24]
+            }
+          },
+          "GatePostEast": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [12, 5, 40],
+              "Size": [2, 10, 2],
+              "Color": [0.2, 0.2, 0.24]
+            }
+          },
+          "GateFrame": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [0, 10, 40],
+              "Size": [26, 2, 2],
+              "Color": [0.2, 0.2, 0.24]
+            }
+          },
+          "LaserBeamLower": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [0, 2, 40],
+              "Size": [24, 0.4, 0.4],
+              "Color": [1, 0.1, 0.1],
+              "Transparency": 0.3,
+              "CanCollide": false
+            }
+          },
+          "LaserBeamMidLow": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [0, 4, 40],
+              "Size": [24, 0.4, 0.4],
+              "Color": [1, 0.1, 0.1],
+              "Transparency": 0.3,
+              "CanCollide": false
+            }
+          },
+          "LaserBeamMidHigh": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [0, 6, 40],
+              "Size": [24, 0.4, 0.4],
+              "Color": [1, 0.1, 0.1],
+              "Transparency": 0.3,
+              "CanCollide": false
+            }
+          },
+          "LaserBeamUpper": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [0, 8, 40],
+              "Size": [24, 0.4, 0.4],
+              "Color": [1, 0.1, 0.1],
+              "Transparency": 0.3,
+              "CanCollide": false
+            }
+          }
+        },
+        "HeistConveyorLane": {
+          "$className": "Model",
+          "ConveyorBelt1": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [-9, 1, -30],
+              "Size": [5, 1, 60],
+              "Color": [0.15, 0.15, 0.18]
+            }
+          },
+          "ConveyorBelt2": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [-3, 1, -30],
+              "Size": [5, 1, 60],
+              "Color": [0.15, 0.15, 0.18]
+            }
+          },
+          "ConveyorBelt3": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [3, 1, -30],
+              "Size": [5, 1, 60],
+              "Color": [0.15, 0.15, 0.18]
+            }
+          },
+          "ConveyorBelt4": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [9, 1, -30],
+              "Size": [5, 1, 60],
+              "Color": [0.15, 0.15, 0.18]
+            }
+          },
+          "ShelterNorth": {
+            "$className": "Model",
+            "ShelterNorthRoof": {
+              "$className": "Part",
+              "$properties": {
+                "Anchored": true,
+                "Locked": true,
+                "Position": [0, 8, -70],
+                "Size": [24, 1, 16],
+                "Color": [0.3, 0.5, 0.85]
+              }
+            },
+            "ShelterNorthWall": {
+              "$className": "Part",
+              "$properties": {
+                "Anchored": true,
+                "Locked": true,
+                "Position": [0, 4, -78],
+                "Size": [24, 8, 1],
+                "Color": [0.3, 0.5, 0.85]
+              }
+            }
+          },
+          "ShelterSouth": {
+            "$className": "Model",
+            "ShelterSouthRoof": {
+              "$className": "Part",
+              "$properties": {
+                "Anchored": true,
+                "Locked": true,
+                "Position": [0, 8, 10],
+                "Size": [24, 1, 16],
+                "Color": [0.3, 0.5, 0.85]
+              }
+            },
+            "ShelterSouthWall": {
+              "$className": "Part",
+              "$properties": {
+                "Anchored": true,
+                "Locked": true,
+                "Position": [0, 4, 18],
+                "Size": [24, 8, 1],
+                "Color": [0.3, 0.5, 0.85]
+              }
+            }
+          }
+        },
+        "TsunamiHazardWall": {
+          "$className": "Model",
+          "WaveWall": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [0, 20, -140],
+              "Size": [200, 40, 4],
+              "Color": [0.1, 0.4, 0.9],
+              "Transparency": 0.2,
+              "CanCollide": false
+            }
+          },
+          "WaveCrestWest": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [-60, 42, -140],
+              "Size": [40, 6, 6],
+              "Color": [0.7, 0.95, 1],
+              "Transparency": 0.1,
+              "CanCollide": false
+            }
+          },
+          "WaveCrestCenter": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [0, 44, -140],
+              "Size": [50, 8, 6],
+              "Color": [0.7, 0.95, 1],
+              "Transparency": 0.1,
+              "CanCollide": false
+            }
+          },
+          "WaveCrestEast": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [60, 42, -140],
+              "Size": [40, 6, 6],
+              "Color": [0.7, 0.95, 1],
+              "Transparency": 0.1,
+              "CanCollide": false
+            }
+          }
+        },
+        "RebirthAltarShrine": {
+          "$className": "Model",
+          "AltarTierLower": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [0, 1, 90],
+              "Size": [40, 2, 40],
+              "Color": [0.5, 0.42, 0.75]
+            }
+          },
+          "AltarTierMiddle": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [0, 4, 90],
+              "Size": [28, 6, 28],
+              "Color": [0.55, 0.46, 0.82]
+            }
+          },
+          "AltarTierUpper": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [0, 8, 90],
+              "Size": [16, 8, 16],
+              "Color": [0.62, 0.52, 0.9]
+            }
+          },
+          "AltarCrystal": {
+            "$className": "Part",
+            "$properties": {
+              "Anchored": true,
+              "Locked": true,
+              "Position": [0, 16, 90],
+              "Size": [6, 10, 6],
+              "Color": [1, 0.85, 0.2],
+              "Transparency": 0.15,
+              "CanCollide": false
+            }
+          }
+        }
       }
     }
   }
